@@ -1,0 +1,25 @@
+<fieldset id="order_details">         
+	<div class="clear"></div>
+  <legend><%= t("confirm") %></legend>
+	<%= render :partial => 'shared/order_details', :locals => {:order => @order} -%>      
+</fieldset>
+
+<hr />
+
+</form>
+<div class="form-buttons">
+	<% payment_service_for @order.number, Billing::Ogone.current.preferred_account_name,
+													:amount => (@order.total * 100).to_i,
+													:currency => Billing::Ogone.current.preferred_currency,
+													:service => :ogone do |service|	%>
+	
+	  <% service.redirect :accepturl 		=> ogone_notification_url,
+	  										 :cancelurl 		=> ogone_notification_url,
+	  										 :declineurl 		=> ogone_notification_url,
+	  										 :exceptionurl 	=> ogone_notification_url
+	  %>
+  <input type="submit" class="continue button primary" value="<%=t("save_and_continue") %>"/>
+	<% end %>
+</div>    
+<form>
+

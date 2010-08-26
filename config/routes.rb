@@ -1,0 +1,1 @@
+map.resource :ogone_notification, :controller => 'ogone_notification'

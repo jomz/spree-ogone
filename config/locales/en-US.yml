@@ -1,0 +1,7 @@
+---
+en-US:
+  currency: Currency
+  use_test: Test mode
+  inbound_signature: Inbound SHA Signature
+  outbound_signature: Outbound SHA Signature
+  account_name: Account name (PSPID)
