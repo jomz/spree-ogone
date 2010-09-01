@@ -16,6 +16,8 @@ Installation
 If you have not yet set up your SHA pass phrases:
 Log in on Ogone, and go to Configuration > Technical information.
 The SHA-IN can be set under 'Data and origin verification', the SHA-OUT under 'Transaction feedback'
+You also need to check 'I want to receive transaction feedback parameters on the redirection URLs.' in the Transaction feedback tab.
+
 
 
 [1]: http://spreecommerce.com/ "Spree: Open Source E-Commerce for Ruby on Rails"
