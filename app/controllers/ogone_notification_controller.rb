@@ -11,7 +11,8 @@ class OgoneNotificationController < ApplicationController
     integration = Billing::Ogone.current
     
     notification = Ogone::Notification.new(request.query_string)
-    @order = Order.find_by_number!(notification.order_id)
+    order_number = notification.order_id.match(/^(R\d+)\/\d+$/)[1]
+    @order = Order.find_by_number!(order_number)
     
     raise OgoneFailed unless notification.complete?
     
