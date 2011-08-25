@@ -32,7 +32,6 @@ class OgoneNotificationController < ApplicationController
     redirect_to @order, {:checkout_complete => true, :order_token => @order.token}
   rescue OgoneFailed
     @order.failed! if @order.respond_to?(:failed!)
-    session[:order_id] = nil
     flash[:error] = I18n.t('unable_to_authorize_credit_card')
     redirect_to root_path
   end
